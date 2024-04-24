@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional; 
+import org.springframework.transaction.annotation.Transactional;
 
 import com.techacademy.entity.User;
 import com.techacademy.repository.UserRepository;
@@ -19,6 +19,13 @@ public class UserService {
         // リポジトリのfindAllメソッドを呼び出す
         return userRepository.findAll();
     }
+    
+ // ----- 追加:ここから -----
+    /** Userを1件検索して返す */
+    public User getUser(Integer id) {
+        return userRepository.findById(id).get();
+    }
+    // ----- 追加:ここまで -----
     
  // ----- 追加:ここから -----
     /** Userの登録を行う */
